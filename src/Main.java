@@ -1,17 +1,49 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+// School Management System
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Teacher lizzy = new Teacher(1, "Lizzy", 500);
+        Teacher melissa = new Teacher(2, "Melissa", 700);
+        Teacher vanderhorn = new Teacher(3, "Vandehorn", 600);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        List<Teacher> teachersList = new ArrayList<>();
+        teachersList.add(lizzy);
+        teachersList.add(melissa);
+        teachersList.add(vanderhorn);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Student tamasha = new Student(1, "Tamasha", 4);
+        Student raksith = new Student(2, "Raksith Vasudev", 12);
+        Student rabbi = new Student(3, "Rabbi", 5);
+
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(tamasha);
+        studentList.add(raksith);
+        studentList.add(rabbi);
+
+        School ghs = new School(teachersList,studentList);
+
+        tamasha.payFees(5000);
+        raksith.payFees(6000);
+        System.out.println("GHS has earned $" + ghs.getTotalMoneyEarned());
+
+
+        System.out.println("---- Making SCHOOL PAY SALARY ----");
+        lizzy.receiveSalary(lizzy.getSalary());
+        System.out.println("GHS has spent for salary to " + lizzy.getName()
+        + " and now has " + ghs.getTotalMoneyEarned());
+
+        vanderhorn.receiveSalary(vanderhorn.getSalary());
+        System.out.println("GHS has spent for salary to " + vanderhorn.getName()
+        + " and now has " + ghs.getTotalMoneyEarned());
+
+        System.out.println(raksith);
+
+        melissa.receiveSalary(melissa.getSalary());
+
+        System.out.println(melissa);
     }
+
 }
